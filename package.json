@@ -1,6 +1,6 @@
 {
   "name": "lib",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Turnit Component Library and Utilities",
   "license": "MIT",
   "main": "dist/cjs/index.js",
@@ -9,7 +9,8 @@
   "private": "true",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "date-fns": "^2.30.0"
@@ -20,6 +21,8 @@
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/jest": "^29.5.2",
     "@typescript-eslint/eslint-plugin": ">=5.57.0",
     "@typescript-eslint/parser": ">=5.57.0",
@@ -32,6 +35,7 @@
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
+    "semantic-release": "^21.0.6",
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.0",
     "typescript": ">=4.4"
@@ -45,5 +49,32 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/naamche/utils.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git",
+      "@semantic-release/changelog"
+    ]
   }
 }
