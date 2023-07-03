@@ -77,16 +77,7 @@
           "tarballDir": "dist"
         }
       ],
-      [
-        "@semantic-release/github",
-        {
-          "assets": [
-            "dist/**/*.js",
-            "docs",
-            "package.json"
-          ]
-        }
-      ],
+      "@semantic-release/github",
       "@semantic-release/changelog"
     ]
   }
