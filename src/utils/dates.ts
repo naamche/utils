@@ -1,6 +1,13 @@
 import { Duration, formatDuration, intervalToDuration } from 'date-fns';
 import { FormatDurationInUnitsOptions } from './dates.type';
 
+/**
+ * Formats the duration between two dates in the specified number of units
+ * @param startDate The start of the interval
+ * @param endDate The end of the interval
+ * @param options Options to pass for calculation duration in units
+ * @returns A string representing the duration between the start and end date in the specified number of units
+ */
 export function formatDurationInUnits(
   startDate: Date | string | number,
   endDate: Date | string | number,
