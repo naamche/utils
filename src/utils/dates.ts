@@ -1,5 +1,5 @@
-import { Duration, formatDuration, intervalToDuration } from "date-fns";
-import { FormatDurationInUnitsOptions } from "./dates.type";
+import { Duration, formatDuration, intervalToDuration } from 'date-fns';
+import { FormatDurationInUnitsOptions } from './dates.type';
 
 export function formatDurationInUnits(
   startDate: Date | string | number,
@@ -10,24 +10,25 @@ export function formatDurationInUnits(
     numberOfUnits = 6,
     canEndDateBeLessThanStartDate = false,
     delimiter,
-    fallBackDuration = "0 days",
+    fallBackDuration = '0 days',
   } = options ?? {};
+  const s = 's';
   if (!canEndDateBeLessThanStartDate) {
     if (new Date(startDate) > new Date(endDate)) {
-      throw new RangeError("Start date is after end date");
+      throw new RangeError('Start date is after end date');
     }
   }
   if (numberOfUnits < 1 || numberOfUnits > 6) {
-    throw new RangeError("Number of units must be between 1 and 6");
+    throw new RangeError('Number of units must be between 1 and 6');
   }
   const getDuration = (duration: Duration): Duration => {
     const intervalRankMap = new Map<number, keyof Duration>();
-    intervalRankMap.set(0, "years");
-    intervalRankMap.set(1, "months");
-    intervalRankMap.set(2, "days");
-    intervalRankMap.set(3, "hours");
-    intervalRankMap.set(4, "minutes");
-    intervalRankMap.set(5, "seconds");
+    intervalRankMap.set(0, 'years');
+    intervalRankMap.set(1, 'months');
+    intervalRankMap.set(2, 'days');
+    intervalRankMap.set(3, 'hours');
+    intervalRankMap.set(4, 'minutes');
+    intervalRankMap.set(5, 'seconds');
 
     const sortedIntervals = Array.from(intervalRankMap.entries())
       .filter(([key]) => {

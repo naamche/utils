@@ -13,7 +13,8 @@
       "moduleResolution": "node",
       "emitDeclarationOnly": true,
       "allowSyntheticDefaultImports": true,
-      "forceConsistentCasingInFileNames": true
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitAny": true,
     },
     "exclude": [
       "dist",
