@@ -6,9 +6,11 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "private": "true",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "date-fns": "^2.30.0"
@@ -33,12 +35,36 @@
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.0",
-    "typescript": ">=4.4"
+    "typescript": ">=4.4",
+    "semantic-release": "^21.0.6"
   },
   "lint-staged": {
     ".{ts, js}": [
       "prettier --write",
       "eslint --fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naamche/utils.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
     ]
   }
 }
