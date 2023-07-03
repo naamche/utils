@@ -1,6 +1,6 @@
 {
   "name": "lib",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Turnit Component Library and Utilities",
   "license": "MIT",
   "main": "dist/cjs/index.js",
@@ -72,7 +72,14 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
-      "@semantic-release/github",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "dist/**"
+          ]
+        }
+      ],
       "@semantic-release/git",
       "@semantic-release/changelog"
     ]
