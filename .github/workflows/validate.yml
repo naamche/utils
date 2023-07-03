@@ -1,7 +1,11 @@
 ---
 name: Validate Code
 
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
 
 jobs:
   commitlint:
@@ -14,7 +18,7 @@ jobs:
       - name: Setup Nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: 'lts/*'
       - name: Print versions
         run: |
           git --version
