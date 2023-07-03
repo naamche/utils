@@ -45,8 +45,8 @@ jobs:
         with:
           node-version: '16.x'
       - name: Validate code with eslint
-        run: npx --no-install eslint ./src
+        run: npx eslint ./src
       - name: Validate code with prettier
-        run: npx --no-install prettier --check ./src
+        run: npx prettier --check ./src
       - name: Run tests
         run: yarn test
