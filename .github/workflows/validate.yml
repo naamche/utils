@@ -47,7 +47,7 @@ jobs:
       - name: Setup Nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: 'lts/*'
       - name: Install packages
         run: npm ci
       - name: Validate code with eslint
