@@ -44,9 +44,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+      - name: Install packages
+        run: npm ci
       - name: Validate code with eslint
         run: npx eslint ./src
       - name: Validate code with prettier
         run: npx prettier --check ./src
       - name: Run tests
-        run: yarn test
+        run: npm run test

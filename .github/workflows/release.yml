@@ -26,13 +26,13 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
       - name: test
-        run: yarn test
+        run: npm run test
       - name: build
-        run: yarn build
+        run: npm run build
       - name: release
         env:
           CI: true
