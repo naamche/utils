@@ -7,6 +7,15 @@ import { FormatDurationInUnitsOptions } from './dates.type';
  * @param endDate The end of the interval
  * @param options Options to pass for calculation duration in units
  * @returns A string representing the duration between the start and end date in the specified number of units
+ *
+ * @example
+ * ```typescript
+ * formatDurationInUnits('2021-01-01', '2021-01-02', { numberOfUnits: 2 });
+ * // => '1 day'
+ *
+ * formatDurationInUnits('2021-01-01', '2021-02-02', { numberOfUnits: 2, delimiter: ', ' });
+ * // => '1 month, 1 day'
+ * ```
  */
 export function formatDurationInUnits(
   startDate: Date | string | number,
@@ -19,7 +28,6 @@ export function formatDurationInUnits(
     delimiter,
     fallBackDuration = '0 days',
   } = options ?? {};
-  const s = 's';
   if (!canEndDateBeLessThanStartDate) {
     if (new Date(startDate) > new Date(endDate)) {
       throw new RangeError('Start date is after end date');
