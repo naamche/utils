@@ -7,9 +7,10 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf build && rollup -c --bundleConfigAsCjs",
+    "build": "rm -rf build && rollup -c --bundleConfigAsCjs && cp -r package.json dist/ && cp -r npm-shrinkwrap.json dist/",
     "test": "jest",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "postversion": "cp -r package.json .. && cp -r npm-shrinkwrap.json .."
   },
   "dependencies": {
     "date-fns": "^2.30.0"
@@ -74,7 +75,7 @@
       [
         "@semantic-release/npm",
         {
-          "tarballDir": "dist"
+          "pkgRoot": "dist"
         }
       ],
       "@semantic-release/github",
@@ -82,8 +83,8 @@
         "@semantic-release/git",
         {
           "assets": [
-            "dist/**/*.{js}",
-            "package.json"
+            "package.json",
+            "npm-shrinkwrap.json"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
