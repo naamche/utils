@@ -51,7 +51,7 @@
     "url": "https://github.com/naamche/utils.git"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "release": {
     "branches": [
