@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types.d.ts",
   "scripts": {
     "build": "rm -rf build && rollup -c --bundleConfigAsCjs && cp -r package.json dist/ && cp -r npm-shrinkwrap.json dist/",
     "test": "jest",
