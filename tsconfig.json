@@ -1,26 +1,26 @@
 {
-    "compilerOptions": {
-      "esModuleInterop": true,
-      "lib": ["es2015"],
-      "strict": true,
-      "skipLibCheck": true,
-      "jsx": "react",
-      "module": "ESNext",
-      "declaration": true,
-      "declarationDir": "types",
-      "sourceMap": true,
-      "outDir": "dist",
-      "moduleResolution": "node",
-      "emitDeclarationOnly": true,
-      "allowSyntheticDefaultImports": true,
-      "forceConsistentCasingInFileNames": true,
-      "noImplicitAny": true,
-    },
-    "exclude": [
-      "dist",
-      "node_modules",
-      "src/**/*.test.ts",
-      "src/**/*.test.tsx",
-      "src/**/*.stories.tsx"
-    ]
-  }
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": ["es2015"],
+    "strict": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "module": "ESNext",
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx"
+  ]
+}

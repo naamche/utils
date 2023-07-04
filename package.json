@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/types.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && rollup -c --bundleConfigAsCjs",
     "test": "jest",
@@ -53,9 +53,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
   "release": {
     "branches": [
       "+([0-9])?(.{+([0-9]),x}).x",
