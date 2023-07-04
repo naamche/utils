@@ -1,4 +1,4 @@
-import { formatString } from './string';
+import { formatFullName, formatString } from './string';
 
 describe('String utils', () => {
   test('should title case a string', () => {
@@ -84,5 +84,43 @@ describe('String utils', () => {
 
   test('should return the string when no options are specified', () => {
     expect(formatString('string')).toBe('string');
+  });
+});
+
+describe('Full name utils', () => {
+  test('should format a full name', () => {
+    expect(formatFullName('jane', 'doe')).toBe('jane doe');
+  });
+
+  test('should format a full name with options', () => {
+    expect(
+      formatFullName('john', 'doe morgan', {
+        type: 'title',
+      })
+    ).toBe('John Doe Morgan');
+  });
+
+  test('should format a full name with a custom callback', () => {
+    expect(
+      formatFullName('john', 'doe morgan', {
+        fn: (str) => str.toUpperCase(),
+      })
+    ).toBe('JOHN DOE MORGAN');
+  });
+
+  test('should format a full name with firstName only', () => {
+    expect(formatFullName('john', undefined, { type: 'capitalFirst' })).toBe(
+      'John'
+    );
+  });
+
+  test('should format a full name with lastName only', () => {
+    expect(
+      formatFullName(undefined, 'doe morgan', { type: 'capitalFirst' })
+    ).toBe('Doe morgan');
+  });
+
+  test('should format a full name with no options', () => {
+    expect(formatFullName(undefined, undefined, { type: 'snake' })).toBe('');
   });
 });
