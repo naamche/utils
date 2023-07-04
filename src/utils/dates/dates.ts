@@ -1,5 +1,5 @@
 import { Duration, formatDuration, intervalToDuration } from 'date-fns';
-import { FormatDurationInUnitsOptions } from './dates.type';
+import { FormatDurationInUnitsOptions } from './date.type';
 
 /**
  * Formats the duration between two dates in the specified number of units
