@@ -7,10 +7,9 @@
   "module": "dist/esm/index.js",
   "types": "dist/types.d.ts",
   "scripts": {
-    "build": "rm -rf build && rollup -c --bundleConfigAsCjs && cp -r package.json dist/ && cp -r npm-shrinkwrap.json dist/",
+    "build": "rm -rf dist && rollup -c --bundleConfigAsCjs",
     "test": "jest",
-    "semantic-release": "semantic-release",
-    "postversion": "cp -r package.json .. && cp -r npm-shrinkwrap.json .."
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "date-fns": "^2.30.0"
@@ -54,6 +53,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist"
+  ],
   "release": {
     "branches": [
       "+([0-9])?(.{+([0-9]),x}).x",
@@ -72,24 +74,20 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/npm",
-        {
-          "pkgRoot": "dist"
-        }
-      ],
-      "@semantic-release/github",
+      "@semantic-release/npm",
+      "@semantic-release/changelog",
       [
         "@semantic-release/git",
         {
           "assets": [
+            "dist/",
             "package.json",
-            "npm-shrinkwrap.json"
+            "CHANGELOG.md"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
-      "@semantic-release/changelog"
+      "@semantic-release/github"
     ]
   }
 }
