@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/naamche/utils/compare/v1.5.0...v1.5.1) (2023-07-05)
+
+
+### Bug Fixes
+
+* **core:** use npm packages ([b28b5b0](https://github.com/naamche/utils/commit/b28b5b04db89c1f91adef161f8d2c3ba65cd18b2))
+
 # [1.5.0](https://github.com/naamche/utils/compare/v1.4.2...v1.5.0) (2023-07-04)
 
 
