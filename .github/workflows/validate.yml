@@ -6,6 +6,7 @@ on:
     types: [opened, synchronize]
     branches:
       - main
+      - develop
 
 jobs:
   commitlint:
