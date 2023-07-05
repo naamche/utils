@@ -3,8 +3,11 @@ import {
   format,
   formatDuration,
   intervalToDuration,
+  isAfter,
+  isFuture,
   isThisYear,
   isToday,
+  isTomorrow,
   isYesterday,
   sub,
 } from 'date-fns';
@@ -236,19 +239,14 @@ export function formatDate(
 }
 
 /**
- * Formats a timestamp to a dynamic string based on its proximity to the current date and time.
- * If the timestamp is from today, it returns the time in 12-hour format.
- * If the timestamp is from yesterday, it returns the string 'Yesterday'.
- * If the timestamp is from this week, it returns the day of the week in abbreviated form (e.g. 'Mon').
- * If the timestamp is from this year, it returns the date in short format (e.g. 'Jan 1').
- * Otherwise, it returns the date in US format (e.g. '01/01/2022').
+ * Formats a timestamp to a dynamic string based on its proximity to the current date.
  * @param timestamp The timestamp to format
- * @returns A string representing the formatted timestamp
+ * @returns A string representing the formatted timestamp based on its proximity to the current date
  *
  * @example
  * ```typescript
  * formatTimestampDynamic(new Date());
- * // => '12:00 AM'
+ * // => '12:00 am'
  *
  * formatTimestampDynamic('2022-01-01T12:00:00Z');
  * // => '01/01/2022'
@@ -257,14 +255,19 @@ export function formatDate(
 export function formatTimestampDynamic(timestamp: Date | string | number) {
   const date = new Date(timestamp);
   const today = new Date();
-  console.log(today, sub(today, { weeks: 1 }));
+  if (isTomorrow(date)) {
+    return 'Tomorrow';
+  }
   if (isToday(date)) {
     return formatTime12hr(date);
   }
   if (isYesterday(date)) {
     return 'Yesterday';
   }
-  if (date > sub(today, { weeks: 1 })) {
+  if (isFuture(date)) {
+    return formatDateUS(date);
+  }
+  if (isAfter(date, sub(today, { weeks: 1 }))) {
     return format(date, 'EEE');
   }
   if (isThisYear(date)) {
