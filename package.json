@@ -51,7 +51,8 @@
     "url": "https://github.com/naamche/utils.git"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "release": {
     "branches": [
