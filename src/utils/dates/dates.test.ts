@@ -154,4 +154,17 @@ describe('Format timestamp relative to current time', () => {
     const expected = formatDateUS(timestamp);
     expect(formatted).toBe(expected);
   });
+
+  test('should return "Tomorrow" if timestamp is in the future', () => {
+    const timestamp = Date.now() + 24 * 60 * 60 * 1000;
+    const formatted = formatTimestampDynamic(timestamp);
+    expect(formatted).toBe('Tomorrow');
+  });
+
+  test('should return full date if timestamp is in the future', () => {
+    const timestamp = Date.now() + 2 * 24 * 60 * 60 * 1000;
+    const formatted = formatTimestampDynamic(timestamp);
+    const expected = formatDateUS(timestamp);
+    expect(formatted).toBe(expected);
+  });
 });
