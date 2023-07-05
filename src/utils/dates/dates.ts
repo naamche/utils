@@ -1,4 +1,13 @@
-import { Duration, format, formatDuration, intervalToDuration } from 'date-fns';
+import {
+  Duration,
+  format,
+  formatDuration,
+  intervalToDuration,
+  isThisYear,
+  isToday,
+  isYesterday,
+  sub,
+} from 'date-fns';
 import { FormatDurationInUnitsOptions } from './date.type';
 
 /**
@@ -194,14 +203,14 @@ export function formatDateTimeUS(date: Date | number | string): string {
  * @example
  * ```typescript
  * formatTime12hr(new Date());
- * // => '12:00 AM'
+ * // => '12:00 am'
  *
  * formatTime12hr('2022-01-01T12:00:00Z');
- * // => '12:00 AM'
+ * // => '12:00 am'
  * ```
  */
 export function formatTime12hr(date: Date | number | string): string {
-  return formatDate(date, 'hh:mm a');
+  return formatDate(date, 'h:mm aaa');
 }
 
 /**
@@ -224,4 +233,42 @@ export function formatDate(
   dateFnsFormat: string
 ): string {
   return format(new Date(date), dateFnsFormat);
+}
+
+/**
+ * Formats a timestamp to a dynamic string based on its proximity to the current date and time.
+ * If the timestamp is from today, it returns the time in 12-hour format.
+ * If the timestamp is from yesterday, it returns the string 'Yesterday'.
+ * If the timestamp is from this week, it returns the day of the week in abbreviated form (e.g. 'Mon').
+ * If the timestamp is from this year, it returns the date in short format (e.g. 'Jan 1').
+ * Otherwise, it returns the date in US format (e.g. '01/01/2022').
+ * @param timestamp The timestamp to format
+ * @returns A string representing the formatted timestamp
+ *
+ * @example
+ * ```typescript
+ * formatTimestampDynamic(new Date());
+ * // => '12:00 AM'
+ *
+ * formatTimestampDynamic('2022-01-01T12:00:00Z');
+ * // => '01/01/2022'
+ * ```
+ */
+export function formatTimestampDynamic(timestamp: Date | string | number) {
+  const date = new Date(timestamp);
+  const today = new Date();
+  console.log(today, sub(today, { weeks: 1 }));
+  if (isToday(date)) {
+    return formatTime12hr(date);
+  }
+  if (isYesterday(date)) {
+    return 'Yesterday';
+  }
+  if (date > sub(today, { weeks: 1 })) {
+    return format(date, 'EEE');
+  }
+  if (isThisYear(date)) {
+    return formatDateShort(date);
+  }
+  return formatDateUS(date);
 }
