@@ -1,5 +1,4 @@
 import {
-  formatDurationInUnits,
   formatDate,
   formatDateFull,
   formatDateShort,
@@ -7,7 +6,9 @@ import {
   formatDateTimeShort,
   formatDateTimeUS,
   formatDateUS,
+  formatDurationInUnits,
   formatTime12hr,
+  formatTimestampDynamic,
 } from './dates';
 
 describe('Format duration in custom number of units', () => {
@@ -115,6 +116,42 @@ describe('Format dates', () => {
   });
 
   test('should format time with 12hr format', () => {
-    expect(formatTime12hr('2019-10-02 23:45:59')).toBe('11:45 PM');
+    expect(formatTime12hr('2019-10-02 23:45:59')).toBe('11:45 pm');
+  });
+});
+
+describe('Format timestamp relative to current time', () => {
+  test('should return time only if timestamp is from today', () => {
+    const timestamp = Date.now();
+    const formatted = formatTimestampDynamic(timestamp);
+    const expected = formatDate(timestamp, 'h:mm aaa');
+    expect(formatted).toBe(expected);
+  });
+
+  test('should return "Yesterday" only if timestamp is from yesterday', () => {
+    const timestamp = Date.now() - 24 * 60 * 60 * 1000;
+    const formatted = formatTimestampDynamic(timestamp);
+    expect(formatted).toBe('Yesterday');
+  });
+
+  test('should return the weekday only if timestamp is from this week', () => {
+    const timestamp = Date.now() - 6 * 24 * 60 * 60 * 1000;
+    const formatted = formatTimestampDynamic(timestamp);
+    const expected = formatDate(timestamp, 'EEE');
+    expect(formatted).toBe(expected);
+  });
+
+  test('should return the month and day if timestamp is before last 7 days and within this year', () => {
+    const timestamp = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    const formatted = formatTimestampDynamic(timestamp);
+    const expected = formatDateShort(timestamp);
+    expect(formatted).toBe(expected);
+  });
+
+  test('should return full date if timestamp is before this year', () => {
+    const timestamp = Date.now() - 365 * 24 * 60 * 60 * 1000;
+    const formatted = formatTimestampDynamic(timestamp);
+    const expected = formatDateUS(timestamp);
+    expect(formatted).toBe(expected);
   });
 });
