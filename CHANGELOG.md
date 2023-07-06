@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/naamche/utils/compare/v1.5.1...v1.5.2) (2023-07-06)
+
+
+### Bug Fixes
+
+* **core:** update package description ([1019871](https://github.com/naamche/utils/commit/101987169d1e8db212750369415398a732e6421f))
+
 ## [1.5.1](https://github.com/naamche/utils/compare/v1.5.0...v1.5.1) (2023-07-05)
 
 
