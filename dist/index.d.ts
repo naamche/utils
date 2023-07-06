@@ -5,6 +5,7 @@ type FormatDurationInUnitsOptions = {
     fallBackDuration?: string;
 };
 
+declare function sanitizeAndCall<T>(func: (date: Date | string | number) => T): (date: Date | string | number) => T;
 /**
  * Formats the duration between two dates in the specified number of units
  * @param startDate The start of the interval
@@ -120,10 +121,10 @@ declare function formatDateTimeUS(date: Date | number | string): string;
  * @example
  * ```typescript
  * formatTime12hr(new Date());
- * // => '12:00 AM'
+ * // => '12:00 am'
  *
  * formatTime12hr('2022-01-01T12:00:00Z');
- * // => '12:00 AM'
+ * // => '12:00 am'
  * ```
  */
 declare function formatTime12hr(date: Date | number | string): string;
@@ -143,6 +144,21 @@ declare function formatTime12hr(date: Date | number | string): string;
  * ```
  */
 declare function formatDate(date: Date | number | string, dateFnsFormat: string): string;
+/**
+ * Formats a timestamp to a dynamic string based on its proximity to the current date.
+ * @param timestamp The timestamp to format
+ * @returns A string representing the formatted timestamp based on its proximity to the current date
+ *
+ * @example
+ * ```typescript
+ * formatTimestampDynamic(new Date());
+ * // => '12:00 am'
+ *
+ * formatTimestampDynamic('2022-01-01T12:00:00Z');
+ * // => '01/01/2022'
+ * ```
+ */
+declare function formatTimestampDynamic(timestamp: Date | string | number): string;
 
 type FormatType = 'title' | 'capitalFirst' | 'camel' | 'kebab' | 'snake' | 'lower' | 'upper';
 type FormatStringOptions = {
@@ -197,4 +213,4 @@ declare function stringToColor(str?: string, options?: StringToColorOptions): st
  */
 declare function formatUSCurrency(amount: number): string;
 
-export { formatDate, formatDateFull, formatDateShort, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatTime12hr, formatUSCurrency, stringToColor };
+export { formatDate, formatDateFull, formatDateShort, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatTime12hr, formatTimestampDynamic, formatUSCurrency, sanitizeAndCall, stringToColor };

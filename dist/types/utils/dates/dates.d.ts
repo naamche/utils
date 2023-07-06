@@ -1,4 +1,5 @@
 import { FormatDurationInUnitsOptions } from './date.type';
+export declare function sanitizeAndCall<T>(func: (date: Date | string | number) => T): (date: Date | string | number) => T;
 /**
  * Formats the duration between two dates in the specified number of units
  * @param startDate The start of the interval
@@ -114,10 +115,10 @@ export declare function formatDateTimeUS(date: Date | number | string): string;
  * @example
  * ```typescript
  * formatTime12hr(new Date());
- * // => '12:00 AM'
+ * // => '12:00 am'
  *
  * formatTime12hr('2022-01-01T12:00:00Z');
- * // => '12:00 AM'
+ * // => '12:00 am'
  * ```
  */
 export declare function formatTime12hr(date: Date | number | string): string;
@@ -137,3 +138,18 @@ export declare function formatTime12hr(date: Date | number | string): string;
  * ```
  */
 export declare function formatDate(date: Date | number | string, dateFnsFormat: string): string;
+/**
+ * Formats a timestamp to a dynamic string based on its proximity to the current date.
+ * @param timestamp The timestamp to format
+ * @returns A string representing the formatted timestamp based on its proximity to the current date
+ *
+ * @example
+ * ```typescript
+ * formatTimestampDynamic(new Date());
+ * // => '12:00 am'
+ *
+ * formatTimestampDynamic('2022-01-01T12:00:00Z');
+ * // => '01/01/2022'
+ * ```
+ */
+export declare function formatTimestampDynamic(timestamp: Date | string | number): string;

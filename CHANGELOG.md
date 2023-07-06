@@ -1,3 +1,16 @@
+# [1.6.0](https://github.com/naamche/utils/compare/v1.5.2...v1.6.0) (2023-07-06)
+
+
+### Bug Fixes
+
+* **dates:** handle null cases in dates ([63fb325](https://github.com/naamche/utils/commit/63fb32519a24836920a999adc775f762a72a0f86))
+* **dates:** handle tomorrow and other cases ([9bfb94b](https://github.com/naamche/utils/commit/9bfb94bc3a03c435b5cdfed7f373e4574127e34e))
+
+
+### Features
+
+* **dates:** add dynamic formatting of timestamp ([9f0e356](https://github.com/naamche/utils/commit/9f0e356e1d338b9983233b12776e323cc6d8f7cf))
+
 ## [1.5.2](https://github.com/naamche/utils/compare/v1.5.1...v1.5.2) (2023-07-06)
 
 
