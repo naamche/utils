@@ -1,7 +1,7 @@
 {
   "name": "@naamche/utils",
   "version": "1.5.1",
-  "description": "Turnit Component Library and Utilities",
+  "description": "Various Node.js and Javascript Utilities",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
