@@ -80,6 +80,34 @@ describe('Format duration in custom number of units', () => {
 });
 
 describe('Format dates', () => {
+  test('should throw error if date is null', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const date: any = null;
+    expect(() => formatDate(date, 'yyyy-MM-dd')).toThrowError(
+      'Date is required to avoid 1970/01/01'
+    );
+  });
+
+  test('should throw error if date is empty', () => {
+    expect(() => formatDate('', 'yyyy-MM-dd')).toThrowError(
+      'Date is required to avoid 1970/01/01'
+    );
+  });
+
+  test('should throw error if date is undefined', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const date: any = undefined;
+    expect(() => formatDate(date, 'yyyy-MM-dd')).toThrowError(
+      'Date is required to avoid 1970/01/01'
+    );
+  });
+
+  test('should throw error if date is invalid', () => {
+    expect(() => formatDate('Invalid date', 'yyyy-MM-dd')).toThrowError(
+      'Date is invalid'
+    );
+  });
+
   test('should format date with a format', () => {
     const date = new Date('2019-10-02 23:00:59');
     expect(formatDate(date, 'yyyy-MM-dd')).toBe('2019-10-02');
