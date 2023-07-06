@@ -12,12 +12,12 @@ import {
   isYesterday,
   sub,
 } from 'date-fns';
-import { FormatDurationInUnitsOptions } from './date.type';
+import { FormatDurationInUnitsOptions, RawDate } from './date.type';
 
 export function sanitizeAndCall<T>(
-  func: (date: Date | string | number) => T
-): (date: Date | string | number) => T {
-  return function (date: Date | string | number): T {
+  func: (date: RawDate) => T
+): (date: RawDate) => T {
+  return function (date: RawDate): T {
     if (!date) throw new Error('Date is required to avoid 1970/01/01');
     if (date instanceof Date) return func(date);
 
@@ -45,8 +45,8 @@ export function sanitizeAndCall<T>(
  * ```
  */
 export function formatDurationInUnits(
-  startDate: Date | string | number,
-  endDate: Date | string | number,
+  startDate: RawDate,
+  endDate: RawDate,
   options?: FormatDurationInUnitsOptions
 ): string {
   const {
@@ -119,7 +119,7 @@ export function formatDurationInUnits(
  * // => 'Jan 01, 2022'
  * ```
  */
-export function formatDateFull(date: Date | number | string): string {
+export function formatDateFull(date: RawDate): string {
   return formatDate(date, 'MMM dd, yyyy');
 }
 
@@ -137,7 +137,7 @@ export function formatDateFull(date: Date | number | string): string {
  * // => 'Jan 01'
  * ```
  */
-export function formatDateShort(date: Date | number | string): string {
+export function formatDateShort(date: RawDate): string {
   return formatDate(date, 'MMM dd');
 }
 
@@ -155,7 +155,7 @@ export function formatDateShort(date: Date | number | string): string {
  * // => '01/01/2022'
  * ```
  */
-export function formatDateUS(date: Date | number | string): string {
+export function formatDateUS(date: RawDate): string {
   return formatDate(date, 'MM/dd/yyyy');
 }
 
@@ -173,7 +173,7 @@ export function formatDateUS(date: Date | number | string): string {
  * // => 'Jan 01, 2022 12:00 AM'
  * ```
  */
-export function formatDateTimeFull(date: Date | string): string {
+export function formatDateTimeFull(date: RawDate): string {
   return formatDate(date, 'MMM dd, yyyy hh:mm a');
 }
 
@@ -191,7 +191,7 @@ export function formatDateTimeFull(date: Date | string): string {
  * // => 'Jan 01 12:00 AM'
  * ```
  */
-export function formatDateTimeShort(date: Date | number | string): string {
+export function formatDateTimeShort(date: RawDate): string {
   return formatDate(date, 'MMM dd hh:mm a');
 }
 
@@ -209,7 +209,7 @@ export function formatDateTimeShort(date: Date | number | string): string {
  * // => '01/01 12:00 AM'
  * ```
  */
-export function formatDateTimeUS(date: Date | number | string): string {
+export function formatDateTimeUS(date: RawDate): string {
   return formatDate(date, 'MM/dd/yyyy hh:mm a');
 }
 
@@ -227,7 +227,7 @@ export function formatDateTimeUS(date: Date | number | string): string {
  * // => '12:00 am'
  * ```
  */
-export function formatTime12hr(date: Date | number | string): string {
+export function formatTime12hr(date: RawDate): string {
   return formatDate(date, 'h:mm aaa');
 }
 
@@ -246,10 +246,7 @@ export function formatTime12hr(date: Date | number | string): string {
  * // => 'Jan 01'
  * ```
  */
-export function formatDate(
-  date: Date | number | string,
-  dateFnsFormat: string
-): string {
+export function formatDate(date: RawDate, dateFnsFormat: string): string {
   return sanitizeAndCall((sanitizedDate) =>
     format(new Date(sanitizedDate), dateFnsFormat)
   )(date);
@@ -269,26 +266,28 @@ export function formatDate(
  * // => '01/01/2022'
  * ```
  */
-export function formatTimestampDynamic(timestamp: Date | string | number) {
-  const date = new Date(timestamp);
-  const today = new Date();
-  if (isTomorrow(date)) {
-    return 'Tomorrow';
-  }
-  if (isToday(date)) {
-    return formatTime12hr(date);
-  }
-  if (isYesterday(date)) {
-    return 'Yesterday';
-  }
-  if (isFuture(date)) {
-    return formatDateUS(date);
-  }
-  if (isAfter(date, sub(today, { weeks: 1 }))) {
-    return format(date, 'EEE');
-  }
-  if (isThisYear(date)) {
-    return formatDateShort(date);
-  }
-  return formatDateUS(date);
+export function formatTimestampDynamic(timestamp: RawDate): string {
+  return sanitizeAndCall((date: RawDate) => {
+    const dateObj = new Date(date);
+    const today = new Date();
+    if (isTomorrow(dateObj)) {
+      return 'Tomorrow';
+    }
+    if (isToday(dateObj)) {
+      return formatTime12hr(dateObj);
+    }
+    if (isYesterday(dateObj)) {
+      return 'Yesterday';
+    }
+    if (isFuture(dateObj)) {
+      return formatDateUS(dateObj);
+    }
+    if (isAfter(dateObj, sub(today, { weeks: 1 }))) {
+      return format(dateObj, 'EEE');
+    }
+    if (isThisYear(dateObj)) {
+      return formatDateShort(dateObj);
+    }
+    return formatDateUS(dateObj);
+  })(timestamp);
 }
