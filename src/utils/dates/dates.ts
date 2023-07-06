@@ -8,10 +8,25 @@ import {
   isThisYear,
   isToday,
   isTomorrow,
+  isValid,
   isYesterday,
   sub,
 } from 'date-fns';
 import { FormatDurationInUnitsOptions } from './date.type';
+
+export function sanitizeAndCall<T>(
+  func: (date: Date | string | number) => T
+): (date: Date | string | number) => T {
+  return function (date: Date | string | number): T {
+    if (!date) throw new Error('Date is required to avoid 1970/01/01');
+    if (date instanceof Date) return func(date);
+
+    const dateObj = new Date(date);
+    if (!isValid(dateObj)) throw new Error('Date is invalid');
+
+    return func(dateObj);
+  };
+}
 
 /**
  * Formats the duration between two dates in the specified number of units
@@ -235,7 +250,9 @@ export function formatDate(
   date: Date | number | string,
   dateFnsFormat: string
 ): string {
-  return format(new Date(date), dateFnsFormat);
+  return sanitizeAndCall((sanitizedDate) =>
+    format(new Date(sanitizedDate), dateFnsFormat)
+  )(date);
 }
 
 /**
