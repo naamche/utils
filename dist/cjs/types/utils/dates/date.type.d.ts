@@ -4,3 +4,4 @@ export type FormatDurationInUnitsOptions = {
     delimiter?: string;
     fallBackDuration?: string;
 };
+export type RawDate = Date | number | string;

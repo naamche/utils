@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/naamche/utils/compare/v1.6.0...v1.6.1) (2023-07-06)
+
+
+### Bug Fixes
+
+* **dates:** add number type to FormatDateFull input ([c912a8e](https://github.com/naamche/utils/commit/c912a8e98c6e10a3006afca8ff027e06bd031f56))
+
 # [1.6.0](https://github.com/naamche/utils/compare/v1.5.2...v1.6.0) (2023-07-06)
 
 

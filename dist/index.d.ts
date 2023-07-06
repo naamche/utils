@@ -4,8 +4,9 @@ type FormatDurationInUnitsOptions = {
     delimiter?: string;
     fallBackDuration?: string;
 };
+type RawDate = Date | number | string;
 
-declare function sanitizeAndCall<T>(func: (date: Date | string | number) => T): (date: Date | string | number) => T;
+declare function sanitizeAndCall<T>(func: (date: RawDate) => T): (date: RawDate) => T;
 /**
  * Formats the duration between two dates in the specified number of units
  * @param startDate The start of the interval
@@ -22,7 +23,7 @@ declare function sanitizeAndCall<T>(func: (date: Date | string | number) => T): 
  * // => '1 month, 1 day'
  * ```
  */
-declare function formatDurationInUnits(startDate: Date | string | number, endDate: Date | string | number, options?: FormatDurationInUnitsOptions): string;
+declare function formatDurationInUnits(startDate: RawDate, endDate: RawDate, options?: FormatDurationInUnitsOptions): string;
 /**
  * Formats a date to the full format string 'MMM dd, yyyy'
  * @param date The date to format
@@ -37,7 +38,7 @@ declare function formatDurationInUnits(startDate: Date | string | number, endDat
  * // => 'Jan 01, 2022'
  * ```
  */
-declare function formatDateFull(date: Date | number | string): string;
+declare function formatDateFull(date: RawDate): string;
 /**
  * Formats a date to the short format string 'MMM dd'
  * @param date The date to format
@@ -52,7 +53,7 @@ declare function formatDateFull(date: Date | number | string): string;
  * // => 'Jan 01'
  * ```
  */
-declare function formatDateShort(date: Date | number | string): string;
+declare function formatDateShort(date: RawDate): string;
 /**
  * Formats a date to the US date format 'MM/dd/yyyy'
  * @param date The date to format
@@ -67,7 +68,7 @@ declare function formatDateShort(date: Date | number | string): string;
  * // => '01/01/2022'
  * ```
  */
-declare function formatDateUS(date: Date | number | string): string;
+declare function formatDateUS(date: RawDate): string;
 /**
  * Formats a date to the full date and time format string 'MMM dd, yyyy hh:mm a'
  * @param date The date to format
@@ -82,7 +83,7 @@ declare function formatDateUS(date: Date | number | string): string;
  * // => 'Jan 01, 2022 12:00 AM'
  * ```
  */
-declare function formatDateTimeFull(date: Date | string): string;
+declare function formatDateTimeFull(date: RawDate): string;
 /**
  * Formats a date to the short date and time format string 'MMM dd hh:mm a'
  * @param date The date to format
@@ -97,7 +98,7 @@ declare function formatDateTimeFull(date: Date | string): string;
  * // => 'Jan 01 12:00 AM'
  * ```
  */
-declare function formatDateTimeShort(date: Date | number | string): string;
+declare function formatDateTimeShort(date: RawDate): string;
 /**
  * Formats a date to the US date and time format string 'MM/dd hh:mm a'
  * @param date The date to format
@@ -112,7 +113,7 @@ declare function formatDateTimeShort(date: Date | number | string): string;
  * // => '01/01 12:00 AM'
  * ```
  */
-declare function formatDateTimeUS(date: Date | number | string): string;
+declare function formatDateTimeUS(date: RawDate): string;
 /**
  * Formats a date to the 12-hour time format string 'hh:mm a'
  * @param date The date to format
@@ -127,7 +128,7 @@ declare function formatDateTimeUS(date: Date | number | string): string;
  * // => '12:00 am'
  * ```
  */
-declare function formatTime12hr(date: Date | number | string): string;
+declare function formatTime12hr(date: RawDate): string;
 /**
  * Formats a date using the specified format string
  * @param date The date to format
@@ -143,7 +144,7 @@ declare function formatTime12hr(date: Date | number | string): string;
  * // => 'Jan 01'
  * ```
  */
-declare function formatDate(date: Date | number | string, dateFnsFormat: string): string;
+declare function formatDate(date: RawDate, dateFnsFormat: string): string;
 /**
  * Formats a timestamp to a dynamic string based on its proximity to the current date.
  * @param timestamp The timestamp to format
@@ -158,7 +159,7 @@ declare function formatDate(date: Date | number | string, dateFnsFormat: string)
  * // => '01/01/2022'
  * ```
  */
-declare function formatTimestampDynamic(timestamp: Date | string | number): string;
+declare function formatTimestampDynamic(timestamp: RawDate): string;
 
 type FormatType = 'title' | 'capitalFirst' | 'camel' | 'kebab' | 'snake' | 'lower' | 'upper';
 type FormatStringOptions = {
