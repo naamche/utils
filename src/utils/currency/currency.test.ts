@@ -1,4 +1,4 @@
-import { formatUSCurrency } from './currency';
+import { formatUSCurrency } from '.';
 
 describe('Format currency', () => {
   test('should format US currency', () => {
