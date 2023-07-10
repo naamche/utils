@@ -1,4 +1,4 @@
-import { FormatFullNameOptions, FormatStringOptions } from './string.type';
+import { FormatStringOptions } from './string.type';
 
 /**
  * Formats a string based on the specified options.
@@ -55,31 +55,4 @@ export function formatString(
     }
   }
   return str;
-}
-
-/**
- * Formats a full name based on the specified options.
- * Use a custom callback if necessary.
- * @param firstName The first name to format.
- * @param lastName The last name to format.
- * @param options The options to use when formatting the full name.
- * @returns The formatted full name.
- */
-export function formatFullName(
-  firstName?: string,
-  lastName?: string,
-  options?: FormatFullNameOptions
-): string {
-  if (firstName && lastName) {
-    return formatString(`${firstName} ${lastName}`, options);
-  }
-
-  if (firstName) {
-    return formatString(firstName, options);
-  }
-
-  if (lastName) {
-    return formatString(lastName, options);
-  }
-  return '';
 }

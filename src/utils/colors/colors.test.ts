@@ -1,4 +1,4 @@
-import { stringToColor } from './colors';
+import { stringToColor } from '.';
 
 describe('Colors utility', () => {
   it('should return a color code from string', () => {

@@ -9,7 +9,7 @@ import {
   formatDurationInUnits,
   formatTime12hr,
   formatTimestampDynamic,
-} from './dates';
+} from '.';
 
 describe('Format duration in custom number of units', () => {
   test('should receive two units with numberOfUnits = 2', () => {
