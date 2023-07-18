@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/naamche/utils/compare/v1.6.1...v1.7.0) (2023-07-18)
+
+
+### Features
+
+* **name:** add utility to get initials for names ([3d741cf](https://github.com/naamche/utils/commit/3d741cf124a1b44bd0684986854a68f0fb986bf2))
+
 ## [1.6.1](https://github.com/naamche/utils/compare/v1.6.0...v1.6.1) (2023-07-06)
 
 

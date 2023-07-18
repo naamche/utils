@@ -177,6 +177,7 @@ type FormatFullNameOptions = FormatStringOptions;
  * @returns The formatted string.
  */
 declare function formatString(str?: string, options?: FormatStringOptions): string;
+
 /**
  * Formats a full name based on the specified options.
  * Use a custom callback if necessary.
@@ -186,6 +187,13 @@ declare function formatString(str?: string, options?: FormatStringOptions): stri
  * @returns The formatted full name.
  */
 declare function formatFullName(firstName?: string, lastName?: string, options?: FormatFullNameOptions): string;
+/**
+ * Returns the initials of a full name.
+ * @param fullName The full name to get the initials from.
+ * @param maxLength The maximum number of initials to return.
+ * @returns The initials of the full name.
+ */
+declare function getInitials(fullName: string, maxLength?: number): string;
 
 type StringToColorOptions = {
     saturation?: number;
@@ -214,4 +222,4 @@ declare function stringToColor(str?: string, options?: StringToColorOptions): st
  */
 declare function formatUSCurrency(amount: number): string;
 
-export { formatDate, formatDateFull, formatDateShort, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatTime12hr, formatTimestampDynamic, formatUSCurrency, sanitizeAndCall, stringToColor };
+export { formatDate, formatDateFull, formatDateShort, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatTime12hr, formatTimestampDynamic, formatUSCurrency, getInitials, sanitizeAndCall, stringToColor };
