@@ -47,9 +47,11 @@ describe('Format duration in custom number of units', () => {
   test('should throw error if start date is after end date if not allowed', () => {
     const startDate = new Date('2014-01-01 00:00:00');
     const endDate = new Date('2013-01-01 00:00:00');
-    expect(() => formatDurationInUnits(startDate, endDate)).toThrowError(
-      'Start date is after end date'
-    );
+    expect(() =>
+      formatDurationInUnits(startDate, endDate, {
+        throwIfEndDateLowerThanStartDate: true,
+      })
+    ).toThrowError('Start date is after end date');
   });
 
   test('should not throw error if start date is after end date if allowed', () => {
@@ -57,7 +59,7 @@ describe('Format duration in custom number of units', () => {
     const endDate = new Date('2013-01-01 00:00:00');
     expect(
       formatDurationInUnits(startDate, endDate, {
-        canEndDateBeLessThanStartDate: true,
+        throwIfEndDateLowerThanStartDate: false,
       })
     ).toBe('1 year 4 months 30 days 10 hours 20 minutes 30 seconds');
   });

@@ -1,6 +1,6 @@
 export type FormatDurationInUnitsOptions = {
   numberOfUnits?: number;
-  canEndDateBeLessThanStartDate?: boolean;
+  throwIfEndDateLowerThanStartDate?: boolean;
   delimiter?: string;
   fallBackDuration?: string;
 };

@@ -51,11 +51,11 @@ export function formatDurationInUnits(
 ): string {
   const {
     numberOfUnits = 6,
-    canEndDateBeLessThanStartDate = false,
+    throwIfEndDateLowerThanStartDate = false,
     delimiter,
     fallBackDuration = '0 days',
   } = options ?? {};
-  if (!canEndDateBeLessThanStartDate) {
+  if (throwIfEndDateLowerThanStartDate) {
     if (new Date(startDate) > new Date(endDate)) {
       throw new RangeError('Start date is after end date');
     }
