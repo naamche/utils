@@ -58,7 +58,7 @@ A string representing the formatted date using the specified format string
 
 #### Defined in
 
-[utils/dates/dates.ts:249](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L249)
+[utils/dates/dates.ts:250](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L250)
 
 ___
 
@@ -92,7 +92,7 @@ A string representing the formatted date in the full format string 'MMM dd, yyyy
 
 #### Defined in
 
-[utils/dates/dates.ts:122](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L122)
+[utils/dates/dates.ts:123](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L123)
 
 ___
 
@@ -126,7 +126,7 @@ A string representing the formatted date in the short format string 'MMM dd'
 
 #### Defined in
 
-[utils/dates/dates.ts:140](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L140)
+[utils/dates/dates.ts:141](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L141)
 
 ___
 
@@ -160,7 +160,7 @@ A string representing the formatted date in the full date and time format string
 
 #### Defined in
 
-[utils/dates/dates.ts:176](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L176)
+[utils/dates/dates.ts:177](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L177)
 
 ___
 
@@ -194,7 +194,7 @@ A string representing the formatted date in the short date and time format strin
 
 #### Defined in
 
-[utils/dates/dates.ts:194](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L194)
+[utils/dates/dates.ts:195](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L195)
 
 ___
 
@@ -228,7 +228,7 @@ A string representing the formatted date in the US date and time format string '
 
 #### Defined in
 
-[utils/dates/dates.ts:212](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L212)
+[utils/dates/dates.ts:213](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L213)
 
 ___
 
@@ -262,7 +262,7 @@ A string representing the formatted date in the US date format 'MM/dd/yyyy'
 
 #### Defined in
 
-[utils/dates/dates.ts:158](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L158)
+[utils/dates/dates.ts:159](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L159)
 
 ___
 
@@ -298,7 +298,7 @@ A string representing the duration between the start and end date in the specifi
 
 #### Defined in
 
-[utils/dates/dates.ts:47](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L47)
+[utils/dates/dates.ts:48](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L48)
 
 ___
 
@@ -325,7 +325,7 @@ The formatted full name.
 
 #### Defined in
 
-[utils/strings/name.ts:14](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/name.ts#L14)
+[utils/strings/name.ts:14](https://github.com/naamche/utils/blob/07c6f6c/src/utils/strings/name.ts#L14)
 
 ___
 
@@ -351,7 +351,7 @@ The formatted string.
 
 #### Defined in
 
-[utils/strings/string.ts:10](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/string.ts#L10)
+[utils/strings/string.ts:10](https://github.com/naamche/utils/blob/07c6f6c/src/utils/strings/string.ts#L10)
 
 ___
 
@@ -385,7 +385,7 @@ A string representing the formatted time in the 12-hour time format string 'hh:m
 
 #### Defined in
 
-[utils/dates/dates.ts:230](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L230)
+[utils/dates/dates.ts:231](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L231)
 
 ___
 
@@ -419,7 +419,7 @@ A string representing the formatted timestamp based on its proximity to the curr
 
 #### Defined in
 
-[utils/dates/dates.ts:269](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L269)
+[utils/dates/dates.ts:270](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L270)
 
 ___
 
@@ -451,7 +451,7 @@ A string representing the formatted currency.
 
 #### Defined in
 
-[utils/currency/currency.ts:13](https://github.com/naamche/utils/blob/1878d3c/src/utils/currency/currency.ts#L13)
+[utils/currency/currency.ts:13](https://github.com/naamche/utils/blob/07c6f6c/src/utils/currency/currency.ts#L13)
 
 ___
 
@@ -476,7 +476,7 @@ The initials of the full name.
 
 #### Defined in
 
-[utils/strings/name.ts:39](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/name.ts#L39)
+[utils/strings/name.ts:39](https://github.com/naamche/utils/blob/07c6f6c/src/utils/strings/name.ts#L39)
 
 ___
 
@@ -514,7 +514,7 @@ ___
 
 #### Defined in
 
-[utils/dates/dates.ts:17](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L17)
+[utils/dates/dates.ts:18](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/dates.ts#L18)
 
 ___
 
@@ -539,4 +539,4 @@ A unique HSL color code generated from the given string.
 
 #### Defined in
 
-[utils/colors/colors.ts:9](https://github.com/naamche/utils/blob/1878d3c/src/utils/colors/colors.ts#L9)
+[utils/colors/colors.ts:9](https://github.com/naamche/utils/blob/07c6f6c/src/utils/colors/colors.ts#L9)

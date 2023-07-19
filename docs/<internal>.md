@@ -29,7 +29,7 @@ Defines the options for formatting a duration in units.
 
 #### Defined in
 
-[utils/dates/date.type.ts:4](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/date.type.ts#L4)
+[utils/dates/date.type.ts:4](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/date.type.ts#L4)
 
 ___
 
@@ -49,7 +49,7 @@ Defines the format options for a string.
 
 #### Defined in
 
-[utils/strings/string.type.ts:16](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/string.type.ts#L16)
+[utils/strings/string.type.ts:16](https://github.com/naamche/utils/blob/07c6f6c/src/utils/strings/string.type.ts#L16)
 
 ___
 
@@ -61,7 +61,7 @@ Represents the available format types for a string.
 
 #### Defined in
 
-[utils/strings/string.type.ts:4](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/string.type.ts#L4)
+[utils/strings/string.type.ts:4](https://github.com/naamche/utils/blob/07c6f6c/src/utils/strings/string.type.ts#L4)
 
 ___
 
@@ -74,7 +74,7 @@ This can be a `Date` object, a number representing the number of milliseconds si
 
 #### Defined in
 
-[utils/dates/date.type.ts:27](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/date.type.ts#L27)
+[utils/dates/date.type.ts:27](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/date.type.ts#L27)
 
 ___
 
@@ -88,10 +88,10 @@ Options for converting a string to a color.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `fallbackColor?` | `string` | Fallback color to use if the generated color is invalid. Must be a valid CSS color string. Defaults to 'hsl(0, 0%, 80%)'. |
-| `lightness?` | `number` | Lightness value for the generated color. Must be a number between 0 and 100. Defaults to 30. |
-| `saturation?` | `number` | Saturation value for the generated color. Must be a number between 0 and 100. Defaults to 70. |
+| `fallbackColor?` | `string` | Fallback color to use if the generated color is invalid. Must be a valid CSS color string. **`Default`** ```ts 'hsl(0, 0%, 80%)'' ``` |
+| `lightness?` | `number` | Lightness value for the generated color. Must be a number between 0 and 100. **`Default`** ```ts 30 ``` |
+| `saturation?` | `number` | Saturation value for the generated color. Must be a number between 0 and 100. **`Default`** ```ts 70 ``` |
 
 #### Defined in
 
-[utils/colors/colors.type.ts:4](https://github.com/naamche/utils/blob/1878d3c/src/utils/colors/colors.type.ts#L4)
+[utils/colors/colors.type.ts:4](https://github.com/naamche/utils/blob/07c6f6c/src/utils/colors/colors.type.ts#L4)

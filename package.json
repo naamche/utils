@@ -7,7 +7,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && rollup -c --bundleConfigAsCjs",
+    "build": "rm -rf dist && rollup -c --bundleConfigAsCjs && npx typedoc",
     "test": "jest",
     "semantic-release": "semantic-release"
   },
@@ -86,6 +86,7 @@
         {
           "assets": [
             "dist/",
+            "docs",
             "package.json",
             "CHANGELOG.md"
           ],
