@@ -1,9 +1,5 @@
 {
   "entryPoints": ["src/index.ts"],
   "out": "docs",
-  "plugin": [
-    "typedoc-plugin-missing-exports",
-    "typedoc-plugin-markdown",
-    "typedoc-github-wiki-theme"
-  ]
+  "plugin": ["typedoc-plugin-missing-exports"]
 }
