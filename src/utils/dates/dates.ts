@@ -12,6 +12,7 @@ import {
   isYesterday,
   sub,
 } from 'date-fns';
+
 import { FormatDurationInUnitsOptions, RawDate } from './date.type';
 
 export function sanitizeAndCall<T>(

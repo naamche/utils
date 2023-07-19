@@ -1,2 +1,2 @@
-export * from './string';
 export * from './name';
+export * from './string';
