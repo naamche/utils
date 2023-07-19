@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/naamche/utils/compare/v1.7.0...v1.7.1) (2023-07-19)
+
+
+### Bug Fixes
+
+* **dates:** don't throw if end date is smaller than start date ([1878d3c](https://github.com/naamche/utils/commit/1878d3c414670cc7f7eea560c3e51391069bac4a))
+
 # [1.7.0](https://github.com/naamche/utils/compare/v1.6.1...v1.7.0) (2023-07-18)
 
 

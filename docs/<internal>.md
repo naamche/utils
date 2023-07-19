@@ -29,7 +29,7 @@ Defines the options for formatting a duration in units.
 
 #### Defined in
 
-[utils/dates/date.type.ts:4](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/date.type.ts#L4)
+[utils/dates/date.type.ts:4](https://github.com/naamche/utils/blob/6e94a3b/src/utils/dates/date.type.ts#L4)
 
 ___
 
@@ -49,7 +49,7 @@ Defines the format options for a string.
 
 #### Defined in
 
-[utils/strings/string.type.ts:16](https://github.com/naamche/utils/blob/07c6f6c/src/utils/strings/string.type.ts#L16)
+[utils/strings/string.type.ts:16](https://github.com/naamche/utils/blob/6e94a3b/src/utils/strings/string.type.ts#L16)
 
 ___
 
@@ -61,7 +61,7 @@ Represents the available format types for a string.
 
 #### Defined in
 
-[utils/strings/string.type.ts:4](https://github.com/naamche/utils/blob/07c6f6c/src/utils/strings/string.type.ts#L4)
+[utils/strings/string.type.ts:4](https://github.com/naamche/utils/blob/6e94a3b/src/utils/strings/string.type.ts#L4)
 
 ___
 
@@ -74,7 +74,7 @@ This can be a `Date` object, a number representing the number of milliseconds si
 
 #### Defined in
 
-[utils/dates/date.type.ts:27](https://github.com/naamche/utils/blob/07c6f6c/src/utils/dates/date.type.ts#L27)
+[utils/dates/date.type.ts:27](https://github.com/naamche/utils/blob/6e94a3b/src/utils/dates/date.type.ts#L27)
 
 ___
 
@@ -94,4 +94,4 @@ Options for converting a string to a color.
 
 #### Defined in
 
-[utils/colors/colors.type.ts:4](https://github.com/naamche/utils/blob/07c6f6c/src/utils/colors/colors.type.ts#L4)
+[utils/colors/colors.type.ts:4](https://github.com/naamche/utils/blob/6e94a3b/src/utils/colors/colors.type.ts#L4)
