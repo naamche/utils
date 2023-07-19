@@ -2,6 +2,10 @@
 
 ## Table of contents
 
+### Modules
+
+- [&lt;internal\&gt;](../wiki/%3Cinternal%3E)
+
 ### Functions
 
 - [formatDate](../wiki/Exports#formatdate)
@@ -27,7 +31,7 @@
 
 ▸ **formatDate**(`date`, `dateFnsFormat`): `string`
 
-Formats a date using the specified format string
+Formats a date to a string using the specified format string.
 
 **`Example`**
 
@@ -35,7 +39,7 @@ Formats a date using the specified format string
 formatDate(new Date(), 'MMM dd, yyyy');
 // => 'Jan 01, 2022'
 
-formatDate('2022-01-01', 'MMM dd');
+formatDate('2022-01-01T12:00:00Z', 'MMM dd');
 // => 'Jan 01'
 ```
 
@@ -43,18 +47,18 @@ formatDate('2022-01-01', 'MMM dd');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
-| `dateFnsFormat` | `string` | The format string to use |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
+| `dateFnsFormat` | `string` | The format string to use for formatting the date |
 
 #### Returns
 
 `string`
 
-A string representing the formatted date
+A string representing the formatted date using the specified format string
 
 #### Defined in
 
-[utils/dates/dates.ts:249](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L249)
+[utils/dates/dates.ts:249](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L249)
 
 ___
 
@@ -78,7 +82,7 @@ formatDateFull('2022-01-01');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
 
 #### Returns
 
@@ -88,7 +92,7 @@ A string representing the formatted date in the full format string 'MMM dd, yyyy
 
 #### Defined in
 
-[utils/dates/dates.ts:122](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L122)
+[utils/dates/dates.ts:122](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L122)
 
 ___
 
@@ -112,7 +116,7 @@ formatDateShort('2022-01-01');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
 
 #### Returns
 
@@ -122,7 +126,7 @@ A string representing the formatted date in the short format string 'MMM dd'
 
 #### Defined in
 
-[utils/dates/dates.ts:140](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L140)
+[utils/dates/dates.ts:140](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L140)
 
 ___
 
@@ -146,7 +150,7 @@ formatDateTimeFull('2022-01-01T12:00:00Z');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
 
 #### Returns
 
@@ -156,7 +160,7 @@ A string representing the formatted date in the full date and time format string
 
 #### Defined in
 
-[utils/dates/dates.ts:176](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L176)
+[utils/dates/dates.ts:176](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L176)
 
 ___
 
@@ -180,7 +184,7 @@ formatDateTimeShort('2022-01-01T12:00:00Z');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
 
 #### Returns
 
@@ -190,7 +194,7 @@ A string representing the formatted date in the short date and time format strin
 
 #### Defined in
 
-[utils/dates/dates.ts:194](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L194)
+[utils/dates/dates.ts:194](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L194)
 
 ___
 
@@ -214,7 +218,7 @@ formatDateTimeUS('2022-01-01T12:00:00Z');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
 
 #### Returns
 
@@ -224,7 +228,7 @@ A string representing the formatted date in the US date and time format string '
 
 #### Defined in
 
-[utils/dates/dates.ts:212](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L212)
+[utils/dates/dates.ts:212](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L212)
 
 ___
 
@@ -248,7 +252,7 @@ formatDateUS('2022-01-01');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
 
 #### Returns
 
@@ -258,7 +262,7 @@ A string representing the formatted date in the US date format 'MM/dd/yyyy'
 
 #### Defined in
 
-[utils/dates/dates.ts:158](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L158)
+[utils/dates/dates.ts:158](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L158)
 
 ___
 
@@ -282,9 +286,9 @@ formatDurationInUnits('2021-01-01', '2021-02-02', { numberOfUnits: 2, delimiter:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `startDate` | `RawDate` | The start of the interval |
-| `endDate` | `RawDate` | The end of the interval |
-| `options?` | `FormatDurationInUnitsOptions` | Options to pass for calculation duration in units |
+| `startDate` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The start of the interval |
+| `endDate` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The end of the interval |
+| `options?` | [`FormatDurationInUnitsOptions`](../wiki/%3Cinternal%3E#formatdurationinunitsoptions) | Options to pass for calculation duration in units |
 
 #### Returns
 
@@ -294,7 +298,7 @@ A string representing the duration between the start and end date in the specifi
 
 #### Defined in
 
-[utils/dates/dates.ts:47](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L47)
+[utils/dates/dates.ts:47](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L47)
 
 ___
 
@@ -311,7 +315,7 @@ Use a custom callback if necessary.
 | :------ | :------ | :------ |
 | `firstName?` | `string` | The first name to format. |
 | `lastName?` | `string` | The last name to format. |
-| `options?` | `FormatStringOptions` | The options to use when formatting the full name. |
+| `options?` | [`FormatStringOptions`](../wiki/%3Cinternal%3E#formatstringoptions) | The options to use when formatting the full name. |
 
 #### Returns
 
@@ -321,7 +325,7 @@ The formatted full name.
 
 #### Defined in
 
-[utils/strings/name.ts:14](https://github.com/naamche/utils/blob/6fe456e/src/utils/strings/name.ts#L14)
+[utils/strings/name.ts:14](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/name.ts#L14)
 
 ___
 
@@ -337,7 +341,7 @@ Use a custom callback if necessary.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `str?` | `string` | The string to format. |
-| `options?` | `FormatStringOptions` | The options to use when formatting the string. |
+| `options?` | [`FormatStringOptions`](../wiki/%3Cinternal%3E#formatstringoptions) | The options to use when formatting the string. |
 
 #### Returns
 
@@ -347,7 +351,7 @@ The formatted string.
 
 #### Defined in
 
-[utils/strings/string.ts:10](https://github.com/naamche/utils/blob/6fe456e/src/utils/strings/string.ts#L10)
+[utils/strings/string.ts:10](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/string.ts#L10)
 
 ___
 
@@ -371,7 +375,7 @@ formatTime12hr('2022-01-01T12:00:00Z');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date` | `RawDate` | The date to format |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The date to format |
 
 #### Returns
 
@@ -381,7 +385,7 @@ A string representing the formatted time in the 12-hour time format string 'hh:m
 
 #### Defined in
 
-[utils/dates/dates.ts:230](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L230)
+[utils/dates/dates.ts:230](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L230)
 
 ___
 
@@ -405,7 +409,7 @@ formatTimestampDynamic('2022-01-01T12:00:00Z');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `timestamp` | `RawDate` | The timestamp to format |
+| `timestamp` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) | The timestamp to format |
 
 #### Returns
 
@@ -415,7 +419,7 @@ A string representing the formatted timestamp based on its proximity to the curr
 
 #### Defined in
 
-[utils/dates/dates.ts:269](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L269)
+[utils/dates/dates.ts:269](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L269)
 
 ___
 
@@ -447,7 +451,7 @@ A string representing the formatted currency.
 
 #### Defined in
 
-[utils/currency/currency.ts:13](https://github.com/naamche/utils/blob/6fe456e/src/utils/currency/currency.ts#L13)
+[utils/currency/currency.ts:13](https://github.com/naamche/utils/blob/1878d3c/src/utils/currency/currency.ts#L13)
 
 ___
 
@@ -472,13 +476,13 @@ The initials of the full name.
 
 #### Defined in
 
-[utils/strings/name.ts:39](https://github.com/naamche/utils/blob/6fe456e/src/utils/strings/name.ts#L39)
+[utils/strings/name.ts:39](https://github.com/naamche/utils/blob/1878d3c/src/utils/strings/name.ts#L39)
 
 ___
 
 ### sanitizeAndCall
 
-▸ **sanitizeAndCall**<`T`\>(`func`): (`date`: `RawDate`) => `T`
+▸ **sanitizeAndCall**<`T`\>(`func`): (`date`: [`RawDate`](../wiki/%3Cinternal%3E#rawdate)) => `T`
 
 #### Type parameters
 
@@ -490,7 +494,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `func` | (`date`: `RawDate`) => `T` |
+| `func` | (`date`: [`RawDate`](../wiki/%3Cinternal%3E#rawdate)) => `T` |
 
 #### Returns
 
@@ -502,7 +506,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `date` | `RawDate` |
+| `date` | [`RawDate`](../wiki/%3Cinternal%3E#rawdate) |
 
 ##### Returns
 
@@ -510,7 +514,7 @@ ___
 
 #### Defined in
 
-[utils/dates/dates.ts:17](https://github.com/naamche/utils/blob/6fe456e/src/utils/dates/dates.ts#L17)
+[utils/dates/dates.ts:17](https://github.com/naamche/utils/blob/1878d3c/src/utils/dates/dates.ts#L17)
 
 ___
 
@@ -525,7 +529,7 @@ Converts a string to a unique HSL color code.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `str?` | `string` | The string to convert to a color code. |
-| `options?` | `StringToColorOptions` | - |
+| `options?` | [`StringToColorOptions`](../wiki/%3Cinternal%3E#stringtocoloroptions) | The options to use when converting the string to a color code. |
 
 #### Returns
 
@@ -535,4 +539,4 @@ A unique HSL color code generated from the given string.
 
 #### Defined in
 
-[utils/colors/colors.ts:8](https://github.com/naamche/utils/blob/6fe456e/src/utils/colors/colors.ts#L8)
+[utils/colors/colors.ts:9](https://github.com/naamche/utils/blob/1878d3c/src/utils/colors/colors.ts#L9)
