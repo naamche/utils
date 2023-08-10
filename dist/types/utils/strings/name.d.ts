@@ -7,7 +7,7 @@ import { FormatFullNameOptions } from './string.type';
  * @param options The options to use when formatting the full name.
  * @returns The formatted full name.
  */
-export declare function formatFullName(firstName?: string, lastName?: string, options?: FormatFullNameOptions): string;
+export declare function formatFullName(firstName?: string | null, lastName?: string | null, options?: FormatFullNameOptions): string;
 /**
  * Returns the initials of a full name.
  * @param fullName The full name to get the initials from.

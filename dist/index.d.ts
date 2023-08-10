@@ -257,7 +257,7 @@ type FormatFullNameOptions = FormatStringOptions;
  * @param options The options to use when formatting the full name.
  * @returns The formatted full name.
  */
-declare function formatFullName(firstName?: string, lastName?: string, options?: FormatFullNameOptions): string;
+declare function formatFullName(firstName?: string | null, lastName?: string | null, options?: FormatFullNameOptions): string;
 /**
  * Returns the initials of a full name.
  * @param fullName The full name to get the initials from.

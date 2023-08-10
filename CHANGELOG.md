@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/naamche/utils/compare/v1.7.1...v1.7.2) (2023-08-10)
+
+
+### Bug Fixes
+
+* add null type to formatFullName ([d7163a6](https://github.com/naamche/utils/commit/d7163a6257082a5cd394bb45e241314fc70fdd32))
+
 ## [1.7.1](https://github.com/naamche/utils/compare/v1.7.0...v1.7.1) (2023-07-19)
 
 
