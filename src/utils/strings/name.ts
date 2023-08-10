@@ -12,8 +12,8 @@ import { FormatFullNameOptions } from './string.type';
  * @returns The formatted full name.
  */
 export function formatFullName(
-  firstName?: string,
-  lastName?: string,
+  firstName?: string | null,
+  lastName?: string | null,
   options?: FormatFullNameOptions
 ): string {
   if (firstName && lastName) {

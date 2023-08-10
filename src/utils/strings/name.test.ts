@@ -28,9 +28,9 @@ describe('Full name util', () => {
   });
 
   test('should format a full name with lastName only', () => {
-    expect(
-      formatFullName(undefined, 'doe morgan', { type: 'capitalFirst' })
-    ).toBe('Doe morgan');
+    expect(formatFullName(null, 'doe morgan', { type: 'capitalFirst' })).toBe(
+      'Doe morgan'
+    );
   });
 
   test('should format a full name with no options', () => {
