@@ -1,4 +1,4 @@
-import { formatString } from '.';
+import { formatString, formatStringWithArticle } from '.';
 
 describe('String utils', () => {
   test('should title case a string', () => {
@@ -84,5 +84,23 @@ describe('String utils', () => {
 
   test('should return the string when no options are specified', () => {
     expect(formatString('string')).toBe('string');
+  });
+});
+
+describe('Articles utils', () => {
+  it('should add "a" on words first letter consonant', () => {
+    expect(formatStringWithArticle('banana')).toBe('A banana');
+  });
+
+  it('should add "an" on words first letter vowel', () => {
+    expect(formatStringWithArticle('apple')).toBe('An apple');
+  });
+
+  it('should add "a" on words first letter consonant with lowercase', () => {
+    expect(formatStringWithArticle('banana', true)).toBe('a banana');
+  });
+
+  it('should add "an" on words first letter vowel with lowercase', () => {
+    expect(formatStringWithArticle('apple', true)).toBe('an apple');
   });
 });

@@ -56,3 +56,22 @@ export function formatString(
   }
   return str;
 }
+
+/**
+ * Formats a string with an appropriate article ('a' or 'an') based on the first letter of the string.
+ * @param str - The string to format.
+ * @param lowercase - @default false Whether to return the article in lowercase.
+ * @returns The formatted string with the appropriate article.
+ */
+export const formatStringWithArticle = (str: string, lowercase = false) => {
+  const lowercaseWord = str.toLowerCase();
+
+  const wordsStartingWithVowels = ['a', 'e', 'i', 'o', 'u'];
+
+  if (wordsStartingWithVowels.includes(lowercaseWord.charAt(0))) {
+    const article = lowercase ? 'an' : 'An';
+    return `${article} ${str}`;
+  }
+  const article = lowercase ? 'a' : 'A';
+  return `${article} ${str}`;
+};
