@@ -7,3 +7,10 @@ import { FormatStringOptions } from './string.type';
  * @returns The formatted string.
  */
 export declare function formatString(str?: string, options?: FormatStringOptions): string;
+/**
+ * Formats a string with an appropriate article ('a' or 'an') based on the first letter of the string.
+ * @param str - The string to format.
+ * @param lowercase - @default false Whether to return the article in lowercase.
+ * @returns The formatted string with the appropriate article.
+ */
+export declare const formatStringWithArticle: (str: string, lowercase?: boolean) => string;

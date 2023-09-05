@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/naamche/utils/compare/v1.7.2...v1.8.0) (2023-09-05)
+
+
+### Features
+
+* add formatStringWithArticle on string ([87751cb](https://github.com/naamche/utils/commit/87751cbbd10b6428fa83f95e80eca322fc3c3e8f))
+
 ## [1.7.2](https://github.com/naamche/utils/compare/v1.7.1...v1.7.2) (2023-08-10)
 
 

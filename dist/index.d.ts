@@ -274,5 +274,12 @@ declare function getInitials(fullName: string, maxLength?: number): string;
  * @returns The formatted string.
  */
 declare function formatString(str?: string, options?: FormatStringOptions): string;
+/**
+ * Formats a string with an appropriate article ('a' or 'an') based on the first letter of the string.
+ * @param str - The string to format.
+ * @param lowercase - @default false Whether to return the article in lowercase.
+ * @returns The formatted string with the appropriate article.
+ */
+declare const formatStringWithArticle: (str: string, lowercase?: boolean) => string;
 
-export { formatDate, formatDateFull, formatDateShort, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatTime12hr, formatTimestampDynamic, formatUSCurrency, getInitials, sanitizeAndCall, stringToColor };
+export { formatDate, formatDateFull, formatDateShort, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatStringWithArticle, formatTime12hr, formatTimestampDynamic, formatUSCurrency, getInitials, sanitizeAndCall, stringToColor };
