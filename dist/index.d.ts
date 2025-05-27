@@ -222,6 +222,21 @@ declare function formatDate(date: RawDate, dateFnsFormat: string): string;
  * ```
  */
 declare function formatTimestampDynamic(timestamp: RawDate): string;
+/**
+ * Formats a date to 'MMM dd' if it's in the current year, otherwise 'MMM dd, yyyy'
+ * @param {RawDate} date The date to format
+ * @returns A string representing the formatted date, excluding the year if it's the current year
+ *
+ * @example
+ * ```typescript
+ * formatDateSmart(new Date());
+ * // => 'May 27'
+ *
+ * formatDateSmart('2022-01-01');
+ * // => 'Jan 01, 2022'
+ * ```
+ */
+declare function formatDateSmart(date: RawDate): string;
 
 /**
  * Represents the available format types for a string.
@@ -282,4 +297,4 @@ declare function formatString(str?: string, options?: FormatStringOptions): stri
  */
 declare const formatStringWithArticle: (str: string, lowercase?: boolean) => string;
 
-export { formatDate, formatDateFull, formatDateShort, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatStringWithArticle, formatTime12hr, formatTimestampDynamic, formatUSCurrency, getInitials, sanitizeAndCall, stringToColor };
+export { formatDate, formatDateFull, formatDateShort, formatDateSmart, formatDateTimeFull, formatDateTimeShort, formatDateTimeUS, formatDateUS, formatDurationInUnits, formatFullName, formatString, formatStringWithArticle, formatTime12hr, formatTimestampDynamic, formatUSCurrency, getInitials, sanitizeAndCall, stringToColor };

@@ -2,6 +2,7 @@ import {
   formatDate,
   formatDateFull,
   formatDateShort,
+  formatDateSmart,
   formatDateTimeFull,
   formatDateTimeShort,
   formatDateTimeUS,
@@ -78,6 +79,23 @@ describe('Format duration in custom number of units', () => {
     expect(() =>
       formatDurationInUnits(startDate, endDate, { numberOfUnits: 7 })
     ).toThrowError('Number of units must be between 1 and 6');
+  });
+
+  test('should format short date if in current year', () => {
+    const thisYear = new Date();
+    thisYear.setMonth(0); // Jan
+    thisYear.setDate(2);
+    expect(formatDateSmart(thisYear)).toBe(formatDateShort(thisYear));
+  });
+
+  test('should format full date if not in current year', () => {
+    const oldDate = new Date('2019-10-02 23:00:59');
+    expect(formatDateSmart(oldDate)).toBe(formatDateFull(oldDate));
+  });
+
+  test('should format string date correctly', () => {
+    const input = `${new Date().getFullYear()}-03-04`;
+    expect(formatDateSmart(input)).toBe(formatDateShort(input));
   });
 });
 

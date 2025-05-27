@@ -292,3 +292,24 @@ export function formatTimestampDynamic(timestamp: RawDate): string {
     return formatDateUS(dateObj);
   })(timestamp);
 }
+
+/**
+ * Formats a date to 'MMM dd' if it's in the current year, otherwise 'MMM dd, yyyy'
+ * @param {RawDate} date The date to format
+ * @returns A string representing the formatted date, excluding the year if it's the current year
+ *
+ * @example
+ * ```typescript
+ * formatDateSmart(new Date());
+ * // => 'May 27'
+ *
+ * formatDateSmart('2022-01-01');
+ * // => 'Jan 01, 2022'
+ * ```
+ */
+export function formatDateSmart(date: RawDate): string {
+  const d = new Date(date);
+  const now = new Date();
+  const isSameYear = d.getFullYear() === now.getFullYear();
+  return isSameYear ? formatDateShort(d) : formatDateFull(d);
+}
