@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/naamche/utils/compare/v1.8.0...v1.9.0) (2025-05-27)
+
+
+### Features
+
+* add formatDateSmart util ([77ae769](https://github.com/naamche/utils/commit/77ae769d2cd5573919b4d675acd5ad5020a4bb95))
+
 # [1.8.0](https://github.com/naamche/utils/compare/v1.7.2...v1.8.0) (2023-09-05)
 
 
