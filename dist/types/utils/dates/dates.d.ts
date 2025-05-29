@@ -154,17 +154,11 @@ export declare function formatDate(date: RawDate, dateFnsFormat: string): string
  */
 export declare function formatTimestampDynamic(timestamp: RawDate): string;
 /**
- * Formats a date to 'MMM dd' if it's in the current year, otherwise 'MMM dd, yyyy'
- * @param {RawDate} date The date to format
- * @returns A string representing the formatted date, excluding the year if it's the current year
- *
- * @example
- * ```typescript
- * formatDateSmart(new Date());
- * // => 'May 27'
- *
- * formatDateSmart('2022-01-01');
- * // => 'Jan 01, 2022'
- * ```
+ * Smartly formats a date:
+ * - Returns 'hh:mm a' if it's today
+ * - 'Yesterday' if it's yesterday
+ * - 'Tomorrow' if it's tomorrow
+ * - 'MMM dd' if it's this year
+ * - 'MMM dd, yyyy' otherwise
  */
 export declare function formatDateSmart(date: RawDate): string;

@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import {
   formatDate,
   formatDateFull,
@@ -80,23 +81,6 @@ describe('Format duration in custom number of units', () => {
       formatDurationInUnits(startDate, endDate, { numberOfUnits: 7 })
     ).toThrowError('Number of units must be between 1 and 6');
   });
-
-  test('should format short date if in current year', () => {
-    const thisYear = new Date();
-    thisYear.setMonth(0); // Jan
-    thisYear.setDate(2);
-    expect(formatDateSmart(thisYear)).toBe(formatDateShort(thisYear));
-  });
-
-  test('should format full date if not in current year', () => {
-    const oldDate = new Date('2019-10-02 23:00:59');
-    expect(formatDateSmart(oldDate)).toBe(formatDateFull(oldDate));
-  });
-
-  test('should format string date correctly', () => {
-    const input = `${new Date().getFullYear()}-03-04`;
-    expect(formatDateSmart(input)).toBe(formatDateShort(input));
-  });
 });
 
 describe('Format dates', () => {
@@ -165,6 +149,44 @@ describe('Format dates', () => {
 
   test('should format time with 12hr format', () => {
     expect(formatTime12hr('2019-10-02 23:45:59')).toBe('11:45 pm');
+  });
+
+  test('should format today as hh:mm a', () => {
+    const now = new Date();
+    const expected = format(now, 'hh:mm a');
+    expect(formatDateSmart(now)).toBe(expected);
+  });
+
+  test('should format yesterday as "Yesterday"', () => {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    expect(formatDateSmart(yesterday)).toBe('Yesterday');
+  });
+
+  test('should format tomorrow as "Tomorrow"', () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    expect(formatDateSmart(tomorrow)).toBe('Tomorrow');
+  });
+
+  test('should format date without year if in current year (but not today/yesterday/tomorrow)', () => {
+    const thisYear = new Date();
+    thisYear.setMonth(1); // Feb
+    thisYear.setDate(5);
+    const expected = formatDateShort(thisYear);
+    expect(formatDateSmart(thisYear)).toBe(expected);
+  });
+
+  test('should format full date if not in current year', () => {
+    const oldDate = new Date('2018-07-14T12:00:00');
+    const expected = formatDateFull(oldDate);
+    expect(formatDateSmart(oldDate)).toBe(expected);
+  });
+
+  test('should format valid string date in this year correctly', () => {
+    const dateStr = `${new Date().getFullYear()}-04-10`;
+    const expected = formatDateShort(new Date(dateStr));
+    expect(formatDateSmart(dateStr)).toBe(expected);
   });
 });
 
