@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/naamche/utils/compare/v1.9.0...v1.9.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* format dates intelligently ([a5decb4](https://github.com/naamche/utils/commit/a5decb450468278117de3e0bf4429eb9ab8112c1))
+
 # [1.9.0](https://github.com/naamche/utils/compare/v1.8.0...v1.9.0) (2025-05-27)
 
 

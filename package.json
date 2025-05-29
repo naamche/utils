@@ -1,6 +1,6 @@
 {
   "name": "@naamche/utils",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Various Node.js and Javascript Utilities",
   "license": "MIT",
   "main": "dist/cjs/index.js",
