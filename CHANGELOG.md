@@ -1,3 +1,12 @@
+## [1.9.3](https://github.com/naamche/utils/compare/v1.9.2...v1.9.3) (2025-06-10)
+
+
+### Bug Fixes
+
+* force 1.9.3 release after blocked 1.9.2 ([9819e3f](https://github.com/naamche/utils/commit/9819e3f5b63bbf120dc649a231ca7f32fe8fe5e0))
+* trigger v1.9.3 ([8df55b2](https://github.com/naamche/utils/commit/8df55b2b613501fbd02ffefd58d1f232d4e4f1c0))
+* trigger v1.9.3 ([b9dc337](https://github.com/naamche/utils/commit/b9dc3372d4fe1acc87f47551851b01e8fcb07ad1))
+
 ## [1.9.2](https://github.com/naamche/utils/compare/v1.9.1...v1.9.2) (2025-06-10)
 
 
