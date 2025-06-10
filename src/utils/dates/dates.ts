@@ -296,26 +296,34 @@ export function formatTimestampDynamic(timestamp: RawDate): string {
 }
 
 /**
- * Smartly formats a date:
- * - Returns 'hh:mm a' if it's today
- * - 'Yesterday' if it's yesterday
- * - 'Tomorrow' if it's tomorrow
- * - 'MMM dd' if it's this year
- * - 'MMM dd, yyyy' otherwise
+ * Timezone-agnostic date formatting:
+ * - Uses UTC for "Today/Yesterday/Tomorrow" checks
+ * - Falls back to date-fns's format() for other cases
  */
 export function formatDateSmart(date: RawDate): string {
-  const inputDate = new Date(date);
+  const input = new Date(date);
   const today = new Date();
 
-  const diff = differenceInCalendarDays(
-    startOfDay(inputDate),
-    startOfDay(today)
+  // UTC-based comparison (timezone-independent)
+  const utcInput = Date.UTC(
+    input.getUTCFullYear(),
+    input.getUTCMonth(),
+    input.getUTCDate()
+  );
+  const utcToday = Date.UTC(
+    today.getUTCFullYear(),
+    today.getUTCMonth(),
+    today.getUTCDate()
   );
 
-  if (diff === 0) return format(inputDate, 'hh:mm a'); // e.g., "04:20 PM"
-  if (diff === -1) return 'Yesterday';
-  if (diff === 1) return 'Tomorrow';
-  if (isThisYear(inputDate)) return formatDateShort(inputDate); // e.g., "May 29"
+  const diffDays = Math.floor((utcInput - utcToday) / (1000 * 60 * 60 * 24));
 
-  return formatDateFull(inputDate); // e.g., "May 29, 2022"
+  if (diffDays === 0) return 'Today';
+  if (diffDays === -1) return 'Yesterday';
+  if (diffDays === 1) return 'Tomorrow';
+
+  if (input.getUTCFullYear() === today.getUTCFullYear()) {
+    return format(input, 'MMM dd'); // "Jun 10"
+  }
+  return format(input, 'MMM dd, yyyy'); // "Jun 10, 2025"
 }

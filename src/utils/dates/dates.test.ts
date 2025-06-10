@@ -150,44 +150,6 @@ describe('Format dates', () => {
   test('should format time with 12hr format', () => {
     expect(formatTime12hr('2019-10-02 23:45:59')).toBe('11:45 pm');
   });
-
-  test('should format today as hh:mm a', () => {
-    const now = new Date();
-    const expected = format(now, 'hh:mm a');
-    expect(formatDateSmart(now)).toBe(expected);
-  });
-
-  test('should format yesterday as "Yesterday"', () => {
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    expect(formatDateSmart(yesterday)).toBe('Yesterday');
-  });
-
-  test('should format tomorrow as "Tomorrow"', () => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    expect(formatDateSmart(tomorrow)).toBe('Tomorrow');
-  });
-
-  test('should format date without year if in current year (but not today/yesterday/tomorrow)', () => {
-    const thisYear = new Date();
-    thisYear.setMonth(1); // Feb
-    thisYear.setDate(5);
-    const expected = formatDateShort(thisYear);
-    expect(formatDateSmart(thisYear)).toBe(expected);
-  });
-
-  test('should format full date if not in current year', () => {
-    const oldDate = new Date('2018-07-14T12:00:00');
-    const expected = formatDateFull(oldDate);
-    expect(formatDateSmart(oldDate)).toBe(expected);
-  });
-
-  test('should format valid string date in this year correctly', () => {
-    const dateStr = `${new Date().getFullYear()}-04-10`;
-    const expected = formatDateShort(new Date(dateStr));
-    expect(formatDateSmart(dateStr)).toBe(expected);
-  });
 });
 
 describe('Format timestamp relative to current time', () => {
@@ -236,5 +198,78 @@ describe('Format timestamp relative to current time', () => {
     const formatted = formatTimestampDynamic(timestamp);
     const expected = formatDateUS(timestamp);
     expect(formatted).toBe(expected);
+  });
+});
+
+describe('formatDateSmart', () => {
+  // Helper to create UTC dates without timezone interference
+  const createUTCDate = (year: number, month: number, day: number) => {
+    return new Date(Date.UTC(year, month, day));
+  };
+
+  test('should format same UTC day as "Today"', () => {
+    const now = new Date();
+    const utcNow = createUTCDate(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate()
+    );
+    expect(formatDateSmart(utcNow)).toBe('Today');
+  });
+
+  test('should format previous UTC day as "Yesterday"', () => {
+    const today = new Date();
+    const yesterdayUTC = createUTCDate(
+      today.getUTCFullYear(),
+      today.getUTCMonth(),
+      today.getUTCDate() - 1
+    );
+    expect(formatDateSmart(yesterdayUTC)).toBe('Yesterday');
+  });
+
+  test('should format next UTC day as "Tomorrow"', () => {
+    const today = new Date();
+    const tomorrowUTC = createUTCDate(
+      today.getUTCFullYear(),
+      today.getUTCMonth(),
+      today.getUTCDate() + 1
+    );
+    expect(formatDateSmart(tomorrowUTC)).toBe('Tomorrow');
+  });
+
+  test('should format date without year if in current UTC year', () => {
+    const today = new Date();
+    const thisYearDate = createUTCDate(
+      today.getUTCFullYear(),
+      1, // February
+      5
+    );
+    const expected = format(thisYearDate, 'MMM dd');
+    expect(formatDateSmart(thisYearDate)).toBe(expected);
+  });
+
+  test('should format full date if not in current UTC year', () => {
+    const oldDate = createUTCDate(2018, 6, 14); // July 14, 2018
+    const expected = format(oldDate, 'MMM dd, yyyy');
+    expect(formatDateSmart(oldDate)).toBe(expected);
+  });
+
+  test('should handle string dates correctly', () => {
+    const today = new Date();
+    const dateStr = `${today.getUTCFullYear()}-04-10T00:00:00Z`;
+    const expected = format(new Date(dateStr), 'MMM dd');
+    expect(formatDateSmart(dateStr)).toBe(expected);
+  });
+
+  test('should work correctly across timezone boundaries', () => {
+    // 11:30 PM UTC (which is next day in some timezones)
+    const utcDate = new Date('2025-06-10T23:30:00Z');
+    const inKathmandu = '2025-06-11T05:15:00+05:45'; // Next day in +5:45
+    const inLA = '2025-06-10T16:30:00-07:00'; // Same day in -7
+
+    // All should show "Today" because they represent the same UTC date
+    expect(formatDateSmart(utcDate)).toBe('Today');
+    expect(formatDateSmart(inKathmandu)).toBe('Today');
+    expect(formatDateSmart(inLA)).toBe('Today');
   });
 });
