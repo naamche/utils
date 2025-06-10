@@ -1,3 +1,12 @@
+## [1.9.2](https://github.com/naamche/utils/compare/v1.9.1...v1.9.2) (2025-06-10)
+
+
+### Bug Fixes
+
+* force new release version ([76df0a3](https://github.com/naamche/utils/commit/76df0a32975c83dba0d132c196615ab782efb4d0))
+* retry semantic-release after tag cleanup ([c0bdd7a](https://github.com/naamche/utils/commit/c0bdd7ab9e3d21b9c1c882a5e037f07d25ad5fc2))
+* use differenceInDays for formatDateStart fn ([60c7b85](https://github.com/naamche/utils/commit/60c7b8526116180923ee3f003b526efd21d70ac5))
+
 ## [1.9.1](https://github.com/naamche/utils/compare/v1.9.0...v1.9.1) (2025-05-29)
 
 
