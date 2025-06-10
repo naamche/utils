@@ -223,12 +223,9 @@ declare function formatDate(date: RawDate, dateFnsFormat: string): string;
  */
 declare function formatTimestampDynamic(timestamp: RawDate): string;
 /**
- * Smartly formats a date:
- * - Returns 'hh:mm a' if it's today
- * - 'Yesterday' if it's yesterday
- * - 'Tomorrow' if it's tomorrow
- * - 'MMM dd' if it's this year
- * - 'MMM dd, yyyy' otherwise
+ * Timezone-agnostic date formatting:
+ * - Uses UTC for "Today/Yesterday/Tomorrow" checks
+ * - Falls back to date-fns's format() for other cases
  */
 declare function formatDateSmart(date: RawDate): string;
 

@@ -1,3 +1,10 @@
+## [1.9.4](https://github.com/naamche/utils/compare/v1.9.3...v1.9.4) (2025-06-10)
+
+
+### Bug Fixes
+
+* use UTC based date comparison ([e40c861](https://github.com/naamche/utils/commit/e40c861b56048a85fe54ea5c64a1772993a6bbe8))
+
 ## [1.9.3](https://github.com/naamche/utils/compare/v1.9.2...v1.9.3) (2025-06-10)
 
 
