@@ -1,4 +1,5 @@
 import {
+  differenceInCalendarDays,
   Duration,
   format,
   formatDuration,
@@ -10,6 +11,7 @@ import {
   isTomorrow,
   isValid,
   isYesterday,
+  startOfDay,
   sub,
 } from 'date-fns';
 
@@ -302,12 +304,18 @@ export function formatTimestampDynamic(timestamp: RawDate): string {
  * - 'MMM dd, yyyy' otherwise
  */
 export function formatDateSmart(date: RawDate): string {
-  const d = new Date(date);
+  const inputDate = new Date(date);
+  const today = new Date();
 
-  if (isToday(d)) return format(d, 'hh:mm a'); // e.g., "04:20 PM"
-  if (isYesterday(d)) return 'Yesterday';
-  if (isTomorrow(d)) return 'Tomorrow';
-  if (isThisYear(d)) return formatDateShort(d); // e.g., "May 29"
+  const diff = differenceInCalendarDays(
+    startOfDay(inputDate),
+    startOfDay(today)
+  );
 
-  return formatDateFull(d); // e.g., "May 29, 2022"
+  if (diff === 0) return format(inputDate, 'hh:mm a'); // e.g., "04:20 PM"
+  if (diff === -1) return 'Yesterday';
+  if (diff === 1) return 'Tomorrow';
+  if (isThisYear(inputDate)) return formatDateShort(inputDate); // e.g., "May 29"
+
+  return formatDateFull(inputDate); // e.g., "May 29, 2022"
 }
